@@ -9,21 +9,23 @@ namespace AttributeInjection.Lib.Tools
 {
     public class AssemblyTool
     {
-
-        public List<Assembly> GetAllProjectAssemblies()
+        public List<Assembly> GetAllAssembliesWhichUseThisLib()
         {
             List<Assembly> assemblies = new List<Assembly>();
 
-            foreach (Assembly assembly in AppDomain.CurrentDomain.GetAssemblies())
-            {
-                string assemblyRootName = assembly.FullName.Split('.')[0];
+            string libraryAssemblyName = Assembly.GetExecutingAssembly().GetName().Name;
 
-                if (assemblyRootName == "System"
-                    || assemblyRootName == "Microsoft"
-                    || assemblyRootName == "Swashbuckle")
+            Assembly[] allAssemblies=AppDomain.CurrentDomain.GetAssemblies();
+
+            foreach (Assembly assembly in allAssemblies)
+            {
+                AssemblyName[] referencedAssemblies=assembly.GetReferencedAssemblies();
+
+                if (referencedAssemblies.Any(r => r.Name == libraryAssemblyName) is false)
                     continue;
 
                 assemblies.Add(assembly);
+
             }
 
             return assemblies;
