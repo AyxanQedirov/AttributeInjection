@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AttributeInjection", "AttributeInjection\AttributeInjection.csproj", "{55BB664C-C987-4ADA-B44F-5D83826F078D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AttributeInjection.Lib", "AttributeInjection.Lib\AttributeInjection.Lib.csproj", "{D5675B98-339D-4216-ACE3-026DC39AD747}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{55BB664C-C987-4ADA-B44F-5D83826F078D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55BB664C-C987-4ADA-B44F-5D83826F078D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55BB664C-C987-4ADA-B44F-5D83826F078D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55BB664C-C987-4ADA-B44F-5D83826F078D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5675B98-339D-4216-ACE3-026DC39AD747}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5675B98-339D-4216-ACE3-026DC39AD747}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5675B98-339D-4216-ACE3-026DC39AD747}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5675B98-339D-4216-ACE3-026DC39AD747}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B64839FD-103F-4541-AE36-906BE64645FB}
+	EndGlobalSection
+EndGlobal
