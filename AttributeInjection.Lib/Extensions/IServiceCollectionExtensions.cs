@@ -26,7 +26,7 @@ namespace AttributeInjection.Lib.Extensions
 
         private static List<Dependecy> DefineDependencyCouples(List<Assembly> assemblies)
         {
-            List<Dependecy> dependecies = new List<Dependecy>();
+            List<Dependecy> dependecies = new();
 
             //Collect All Abstracts
             foreach (Assembly assembly in assemblies)

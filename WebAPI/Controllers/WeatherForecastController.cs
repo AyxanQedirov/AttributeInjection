@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using Persistence;
 
-namespace AttributeInjection.Controllers
+namespace WebAPI.Controllers
 {
     [ApiController]
     [Route("[controller]")]
@@ -22,7 +21,6 @@ namespace AttributeInjection.Controllers
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {
-            TestRepository repo=new TestRepository();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
