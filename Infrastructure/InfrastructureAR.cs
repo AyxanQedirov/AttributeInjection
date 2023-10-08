@@ -1,4 +1,4 @@
-﻿using Application;
+﻿using AttributeInjection.Lib.Markers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,11 +7,7 @@ using System.Threading.Tasks;
 
 namespace Infrastructure
 {
-    public class TestService : ITestService
+    public class InfrastructureAR:AssemblyRegistrator
     {
-        public string GetName()
-        {
-            return "Hello World !";
-        }
     }
 }

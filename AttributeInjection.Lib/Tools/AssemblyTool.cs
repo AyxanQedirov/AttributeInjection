@@ -30,5 +30,6 @@ namespace AttributeInjection.Lib.Tools
 
             return assemblies;
         }
+
     }
 }

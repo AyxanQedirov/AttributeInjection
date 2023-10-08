@@ -1,4 +1,5 @@
 ﻿using AttributeInjection.Lib.Attributes.Commons;
+using AttributeInjection.Lib.Markers;
 using AttributeInjection.Lib.Models;
 using AttributeInjection.Lib.Tools;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,10 +16,10 @@ namespace AttributeInjection.Lib.Extensions
     public static class IServiceCollectionExtensions
     {
 
-        public static IServiceCollection AddAttributeInjection(this IServiceCollection services)
+        public static IServiceCollection AddAttributeInjection(this IServiceCollection services,params  AssemblyRegistrator[] assemblyRegistrators)
         {
             AssemblyTool assemblyTool = new AssemblyTool();
-            List<Assembly> assemblies = assemblyTool.GetAllAssembliesWhichUseThisLib();
+            List<Assembly> assemblies = AssemblyRegistratorToAssembly(assemblyRegistrators.ToList());
             List<Dependecy> dependecies = DefineDependencyCouples(assemblies);
 
             return services;
@@ -60,6 +61,18 @@ namespace AttributeInjection.Lib.Extensions
             }
 
             return false;
+        }
+
+        private static List<Assembly> AssemblyRegistratorToAssembly(List<AssemblyRegistrator> assemblyRegistrators)
+        {
+            List<Assembly> result = new();
+
+            foreach(var ar in assemblyRegistrators)
+            {
+                result.Add(ar.GetAssembly());
+            }
+
+            return result;
         }
     }
 }
