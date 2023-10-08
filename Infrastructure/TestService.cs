@@ -1,4 +1,5 @@
 ﻿using Application;
+using AttributeInjection.Lib.Attributes.ForConretes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace Infrastructure
     {
         public string GetName()
         {
-            return "Hello World !";
+            return "TestService";
         }
     }
 }

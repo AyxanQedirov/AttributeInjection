@@ -10,5 +10,6 @@ namespace Application
     [Repository]
     public  interface ITestRepository
     {
+        string GetName();
     }
 }

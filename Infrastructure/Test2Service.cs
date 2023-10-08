@@ -1,17 +1,17 @@
 ﻿using Application;
+using AttributeInjection.Lib.Attributes.ForConretes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Persistence
+namespace Infrastructure
 {
-    public class TestRepository : ITestRepository
+    [UseThis]
+    public class Test2Service : ITestService
     {
         public string GetName()
-        {
-            return "Test Repository";
-        }
+            => "Test2Service";
     }
 }
