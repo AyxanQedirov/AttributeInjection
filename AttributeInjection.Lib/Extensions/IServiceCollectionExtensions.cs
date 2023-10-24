@@ -89,7 +89,9 @@ namespace AttributeInjection.Lib.Extensions
             {
 
                 if (attribute.AttributeType.BaseType == typeof(BaseInjector))
+                {
                     return true;
+                }                 
             }
 
             return false;

@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace AttributeInjection.Lib.Attributes.ForAbstracts
 {
-    public class Service : BaseInjector
+    public class Tool : BaseInjector
     {
         public override void Add(IServiceCollection services, Type @abstract, Type concrete)
         {
-            services.AddScoped(@abstract,concrete);
+            services.AddSingleton(@abstract,concrete);
         }
     }
 }
