@@ -13,7 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Application\Application.csproj" />
-    <ProjectReference Include="..\AttributeInjection.Lib\AttributeInjection.Lib.csproj" />
+    <ProjectReference Include="..\AttributeInjection.Lib\AttributeInjection.csproj" />
     <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
     <ProjectReference Include="..\Persistence\Persistence.csproj" />
   </ItemGroup>

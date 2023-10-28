@@ -1,4 +1,5 @@
 ﻿using AttributeInjection.Lib.Attributes.Commons;
+using AttributeInjection.Lib.Attributes.ForAbstracts;
 using AttributeInjection.Lib.Attributes.ForConretes;
 using AttributeInjection.Lib.Markers;
 using AttributeInjection.Lib.Models;
@@ -91,7 +92,7 @@ namespace AttributeInjection.Lib.Extensions
                 if (attribute.AttributeType.BaseType == typeof(BaseInjector))
                 {
                     return true;
-                }                 
+                }
             }
 
             return false;
@@ -109,10 +110,10 @@ namespace AttributeInjection.Lib.Extensions
         }
         private static void AddDependenciesToIoCContainer(IServiceCollection services, List<Dependecy> dependecies)
         {
+
             foreach (Dependecy dependency in dependecies)
-            {
                 services.AddScoped(dependency.Abstract, dependency.Concrete);
-            }
         }
+        
     }
 }

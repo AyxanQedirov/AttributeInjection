@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Infrastructure
 {
+    
     [UseThis]
     public class Test2Service : ITestService
     {
