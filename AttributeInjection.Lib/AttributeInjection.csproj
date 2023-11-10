@@ -5,7 +5,22 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Authors>AyxanQadirov</Authors>
+    <Description>What is AttributeInjecton ❓
+AttributeInjection is a simple library to resolve dependencies which your application contains, and this library main purpose is adding your dependencies to IoC container fastly and simply 😃.</Description>
+    <PackageTags>attribute, injection, ioc, di, container, dependency, injection, inversion, of, control, singelton, transient, scope, service</PackageTags>
+    <RepositoryUrl>https://github.com/AyxanQedirov/AttributeInjection</RepositoryUrl>
+    <Title>Fast &amp; Easy Injection</Title>
+    <PackageIcon>AttributeInjection.png</PackageIcon>
+    <Version>1.0.1</Version>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\..\AttributeInjection.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
