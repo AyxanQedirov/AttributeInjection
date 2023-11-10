@@ -10,11 +10,13 @@ namespace WebAPI.Controllers
     {
         private readonly ITestService _testService;
         private readonly ITestRepository _testRepository;
+        private readonly IManualService _manualService;
 
-        public TestController(ITestService testService, ITestRepository testRepository)
+        public TestController(ITestService testService, ITestRepository testRepository, IManualService manualService)
         {
             _testService = testService;
             _testRepository = testRepository;
+            _manualService = manualService;
         }
 
         [HttpGet]
@@ -22,6 +24,7 @@ namespace WebAPI.Controllers
         {
             string name = _testService.GetName();
             string name2=_testRepository.GetName();
+            string name3 = _manualService.Message();
             return Ok();
         }
     }

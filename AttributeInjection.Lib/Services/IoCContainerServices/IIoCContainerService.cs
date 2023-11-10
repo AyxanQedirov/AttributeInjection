@@ -1,10 +1,12 @@
-﻿using AttributeInjection.Lib.Models;
+﻿using AttributeInjection.Lib.Markers;
+using AttributeInjection.Lib.Models;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace AttributeInjection.Lib.Services.IoCContainerServices
 {
-    public interface IIoCContainerService
+    internal interface IIoCContainerService
     {
-        void AddDependenciesToIoCContainer(IServiceCollection services, List<Dependecy> dependecies);
+        IIoCContainerService AddDependenciesToIoCContainer(IServiceCollection services, List<Dependecy> dependecies);
+        IIoCContainerService AddDependenciesToIoCContainerFromAssemblyRegistratorRange(IServiceCollection services,IEnumerable<AssemblyRegistrator> assemblyRegistrators);
     }
 }

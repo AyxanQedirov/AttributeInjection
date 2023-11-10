@@ -1,4 +1,5 @@
-﻿using AttributeInjection.Lib.Models;
+﻿using AttributeInjection.Lib.Markers;
+using AttributeInjection.Lib.Models;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -8,13 +9,24 @@ using System.Threading.Tasks;
 
 namespace AttributeInjection.Lib.Services.IoCContainerServices
 {
-    public class MicrosoftIoCContainerService:IIoCContainerService
+    internal class MicrosoftIoCContainerService : IIoCContainerService
     {
-        public void AddDependenciesToIoCContainer(IServiceCollection services, List<Dependecy> dependecies)
+        public IIoCContainerService AddDependenciesToIoCContainer(IServiceCollection services, List<Dependecy> dependecies)
         {
 
             foreach (Dependecy dependency in dependecies)
                 services.AddScoped(dependency.Abstract, dependency.Concrete);
+
+            return this;
+
+        }
+
+        public IIoCContainerService AddDependenciesToIoCContainerFromAssemblyRegistratorRange(IServiceCollection services, IEnumerable<AssemblyRegistrator> assemblyRegistrators)
+        {
+            foreach (AssemblyRegistrator assemblyRegistrator in assemblyRegistrators)
+                assemblyRegistrator.AddDependenciesManually(services);
+
+            return this;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -7,9 +8,14 @@ using System.Threading.Tasks;
 
 namespace AttributeInjection.Lib.Markers
 {
-    public class AssemblyRegistrator
+    public  class AssemblyRegistrator
     {
-        public Assembly GetAssembly()
+        internal Assembly GetAssembly()
             =>this.GetType().Assembly;
+
+        virtual public void AddDependenciesManually(IServiceCollection services)
+        {
+        }
+
     }
 }

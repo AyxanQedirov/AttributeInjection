@@ -6,7 +6,6 @@ using AttributeInjection.Lib.Models;
 using AttributeInjection.Lib.Services.AssemblyServices;
 using AttributeInjection.Lib.Services.DependencyServices;
 using AttributeInjection.Lib.Services.IoCContainerServices;
-using AttributeInjection.Lib.Tools;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -29,7 +28,10 @@ namespace AttributeInjection.Lib.Extensions
 
             List<Assembly> assemblies = assemblyService.AssemblyRegistratorToAssembly(assemblyRegistrators.ToList());
             List<Dependecy> dependecies = dependencyService.FindDependenciesConcretesFromAssemblies(dependencyService.CollectAllAbstractsFromAssemblies(assemblies).ToList(), assemblies).ToList();
-            iocContainerService.AddDependenciesToIoCContainer(services,dependecies);
+            iocContainerService
+                .AddDependenciesToIoCContainer(services,dependecies)
+                .AddDependenciesToIoCContainerFromAssemblyRegistratorRange(services,assemblyRegistrators);
+            
 
             return services;
         }
