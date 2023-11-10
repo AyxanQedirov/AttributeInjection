@@ -1,5 +1,6 @@
 ﻿using AttributeInjection.Lib.Attributes.Commons;
 using AttributeInjection.Lib.Attributes.ForConretes;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,15 +28,17 @@ namespace AttributeInjection.Lib.Models
                 return Concrete.CustomAttributes.Any(c => c.AttributeType == typeof(UseThis));
             }
         }
-
+        public Action<IServiceCollection,Type,Type> AddDelegate { get; set; }
         public Dependecy()
         {
 
         }
 
-        public Dependecy(Type @abstract)
+        public Dependecy(Type @abstract, Action<IServiceCollection, Type, Type> addDelegate)
         {
             Abstract = @abstract;
+            AddDelegate= addDelegate;
         }
+
     }
 }

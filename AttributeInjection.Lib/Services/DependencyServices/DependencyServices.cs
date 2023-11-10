@@ -1,4 +1,5 @@
-﻿using AttributeInjection.Lib.Attributes.ForConretes;
+﻿using AttributeInjection.Lib.Attributes.Commons;
+using AttributeInjection.Lib.Attributes.ForConretes;
 using AttributeInjection.Lib.Extensions;
 using AttributeInjection.Lib.Models;
 using System;
@@ -24,10 +25,11 @@ namespace AttributeInjection.Lib.Services.DependencyServices
                     if (type.IsInterface is false)
                         continue;
 
-                    if (type.DoesTypeHaveInjectorAttribute() is false)
+                    BaseInjector findedInjector;
+                    if (type.DoesTypeHaveInjectorAttribute(out findedInjector) is false)
                         continue;
-
-                    dependencies.Add(new Dependecy(type));
+                                        
+                    dependencies.Add(new Dependecy(type,findedInjector.Add));
                 }
             }
             return dependencies;

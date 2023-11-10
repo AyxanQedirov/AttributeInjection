@@ -15,7 +15,8 @@ namespace AttributeInjection.Lib.Services.IoCContainerServices
         {
 
             foreach (Dependecy dependency in dependecies)
-                services.AddScoped(dependency.Abstract, dependency.Concrete);
+                dependency.AddDelegate.Invoke(services, dependency.Abstract, dependency.Concrete);
+
 
             return this;
 
